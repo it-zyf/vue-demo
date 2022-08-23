@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>属性绑定</title>
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+
+
+<div id="app">
+    <p>{{number+1}}</p>
+
+    <p>{{ok ? 'true' : 'false'}}</p>
+
+    <p>{{user.name}}</p>
+
+<!--    <p :id="'list-'+ id">xxx</p>-->
+</div>
+
+<script>
+    const {createApp} = Vue
+
+    createApp({
+        data() {
+            return {
+                number:9,
+                ok:true,
+                user:{
+                    name:'张三'
+                },
+                // id: 1
+            }
+        }
+    }).mount('#app')
+</script>
+
+</body>
+</html>
