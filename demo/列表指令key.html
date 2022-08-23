@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>条件指令渲染key</title>
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+
+
+<div id="app">
+    <!--添加用户区域-->
+    <input type="text" placeholder="请输入要添加的用户" v-model="name">
+    <button @click="addUser">添加用户</button>
+
+
+    <!--列表区域-->
+   <ul>
+       <li v-for="(user) in userList">
+           <input type="checkbox">
+           id :{{user.id}},姓名 :{{user.name}}
+       </li>
+   </ul>
+
+</div>
+
+<script>
+    const {createApp} = Vue
+
+    createApp({
+        data() {
+            return {
+                userList: [
+                    {id:1,name:"张三"},
+                    {id:2,name:"李四"},
+                    {id:3,name:"王五"}
+                ],
+                nextId:4,
+
+                name:''
+            }
+        },
+        methods:{
+            addUser(){
+                if(this.name !='' && this.name != ""){
+                    this.userList.push({id:this.nextId,name:this.name})
+                    this.name='',
+                    this.nextId+=1
+                }
+
+
+
+            }
+        }
+    }).mount('#app')
+</script>
+
+</body>
+</html>
