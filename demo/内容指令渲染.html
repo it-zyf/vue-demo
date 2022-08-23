@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>内容指令渲染</title>
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+
+
+<div id="app">
+    <p>姓名: {{userName}}</p>
+
+    <p>性别: {{gender}}</p>
+
+    <p>年龄: {{age}}</p>
+
+    <p>描述: {{desc}}</p>
+
+    <p v-html="gitHub"></p>
+
+</div>
+
+<script>
+    const {createApp} = Vue
+
+    createApp({
+        data() {
+            return {
+                userName: '张三',
+                gender:'男',
+                age:'26',
+                desc:'一个程序员',
+                gitHub:'<a href="https://github.com/it-zyf?tab=repositories">gitHub</a>'
+            }
+        }
+    }).mount('#app')
+</script>
+
+</body>
+</html>

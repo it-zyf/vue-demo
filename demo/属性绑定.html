@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>属性绑定</title>
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+
+
+<div id="app">
+    <a :href="link">百度</a>
+
+    <input type="text" :placeholder="inputValue">
+
+    <img :src="imgSrc" :style="{width:w}" alt="">
+</div>
+
+<script>
+    const {createApp} = Vue
+
+    createApp({
+        data() {
+            return {
+                link: 'http://www.baidu.com',
+                inputValue:'请输入内容',
+                imgSrc:'./img/123.jpg',
+                w:'500px'
+            }
+        }
+    }).mount('#app')
+</script>
+
+</body>
+</html>
