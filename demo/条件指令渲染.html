@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>条件指令渲染</title>
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+
+
+<div id="app">
+    <button @click="changeFlag">change Flag</button>
+
+    <p v-if="flag">请求成功 被v-if 标签控制</p>
+
+    <p v-show="!flag">请求成功 被v-show 标签控制</p>
+
+</div>
+
+<script>
+    const {createApp} = Vue
+
+    createApp({
+        data() {
+            return {
+                flag: false
+            }
+        },
+        methods:{
+            changeFlag(){
+                this.flag=!this.flag
+            }
+
+        }
+    }).mount('#app')
+</script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件绑定指令</title>
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+
+
+<div id="app">
+    <h3>count的值为 :{{count}}</h3>
+
+    <button @click="addCount">按钮+1</button>
+
+    <button @click="minusCount">按钮-1</button>
+
+</div>
+
+<script>
+    const {createApp} = Vue
+
+    createApp({
+        data() {
+            return {
+                count: 0
+            }
+        },
+        methods:{
+            addCount(){
+                this.count+=1
+            },
+            minusCount(){
+                if(this.count>0){
+                    this.count-=1
+                }
+            }
+        }
+    }).mount('#app')
+</script>
+
+</body>
+</html>
