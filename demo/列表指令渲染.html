@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>条件指令渲染</title>
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+
+
+<div id="app">
+   <ul>
+       <li v-for="(user) in userList">id是:{{user.id}},姓名是:{{user.name}}</li>
+   </ul>
+
+</div>
+
+<script>
+    const {createApp} = Vue
+
+    createApp({
+        data() {
+            return {
+                userList: [
+                    {id:1,name:"张三"},
+                    {id:2,name:"李四"},
+                    {id:3,name:"王五"}
+                ]
+            }
+        }
+    }).mount('#app')
+</script>
+
+</body>
+</html>
